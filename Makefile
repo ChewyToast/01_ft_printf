@@ -12,6 +12,8 @@
 
 NAME =		libftprintf.a
 
+#NAME =		ft_printf.out
+
 SRCS =		ft_printf/a_ft_printf.c	ft_printf/ft_putchar.c		\
 			ft_printf/b_ft_read.c	ft_printf/ft_putstr.c		\
 			ft_printf/ft_itoa.c		ft_printf/ft_strlen.c		\
@@ -29,6 +31,7 @@ OBJS =		$(SRCS:.c=.o)
 BNS_OBJS =	$(BNS_SRCS:.c=.o)
 
 FLAGS =		-Werror -Wextra -Wall -c
+#FLAGS =		-g 
 
 CC = 		gcc
 
@@ -37,7 +40,7 @@ LIBR = 		ft_printf/ft_printf.h
 all:		$(NAME)
 
 %.o: %.c $(LIBR)
-	$(CC) $(FLAGS) $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME):	$(OBJS) $(LIBR)
 			@ar -rcs $(NAME) $^
@@ -45,8 +48,12 @@ $(NAME):	$(OBJS) $(LIBR)
 bonus:		$(BNS_OBJS) $(LIBR)
 			@ar -rcs $(NAME) $^
 
+#bonus:		$(BNS_OBJS) $(LIBR)
+#			$(CC) $(FLAGS) $(BNS_OBJS) -o $(NAME)
+
 clean:
 			@rm -f	$(OBJS)
+			@rm -f 	$(BNS_OBJS)
 
 fclean:		clean
 			@rm -f	$(NAME)

@@ -31,5 +31,6 @@ ssize_t	ft_10to16(unsigned int n, int mode, int flag);
 ssize_t	ft_putchar(char c);
 ssize_t	ft_putstr(const char *str);
 int		ft_strlen(const char *s);
+int     a_conver_i(const char *nptr);
 
 #endif
