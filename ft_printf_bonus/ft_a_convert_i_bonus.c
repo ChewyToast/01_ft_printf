@@ -11,16 +11,6 @@
 /* ************************************************************************** */
 #include "ft_printf_bonus.h"
 
-int	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
 int	a_conver_i(const char *nptr)
 {
 	int	num;

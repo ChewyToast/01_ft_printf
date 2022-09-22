@@ -32,7 +32,7 @@ ssize_t	ft_read(const char *str, va_list args)
 				str += read_condition(str);
 		}
 		else
-			tmp = ft_putchar(*str);
+			tmp = ft_putcharr(*str);
 		if (tmp < 0)
 			return (-1);
 		str++;
@@ -56,7 +56,7 @@ static ssize_t	read_condition(const char *str)
 		rtrn += size + 1;
 	}
 	else if ((*str == ' ' && str[1] == '+')
-			|| (*str == '+' && str[1] == ' '))
+		|| (*str == '+' && str[1] == ' '))
 			rtrn += 2;
 	else if (*str == '#' || *str == ' ' || *str == '+')
 		rtrn += 1;
@@ -69,13 +69,13 @@ static ssize_t	check_conversion(va_list args, const char *str)
 
 	rslt = 0;
 	if (*str == 'c')
-		rslt = ft_putchar(va_arg(args, int));
+		rslt = ft_putcharr(va_arg(args, int));
 	else if (*str == 's')
-		rslt = ft_putstr(va_arg(args, char *));
+		rslt = ft_putstrr(va_arg(args, char *));
 	else if (*str == 'p')
 		rslt = ft_ptoa(va_arg(args, unsigned long long int));
 	else if (*str == 'd' || *str == 'i')
-		rslt = ft_itoa(va_arg(args, int), 0, 0);
+		rslt = ft_itoaa(va_arg(args, int), 0, 0);
 	else if (*str == 'u')
 		rslt = ft_uitoa(va_arg(args, unsigned int));
 	else if (*str == 'x')
@@ -83,7 +83,7 @@ static ssize_t	check_conversion(va_list args, const char *str)
 	else if (*str == 'X')
 		rslt = ft_10to16(va_arg(args, unsigned int), 1, 0);
 	else if (*str == '%')
-		rslt = ft_putchar('%');
+		rslt = ft_putcharr('%');
 	else if (*str == '#' || *str == ' ' || *str == '+')
 		rslt = check_bonus(args, str);
 	return (rslt);
@@ -103,15 +103,15 @@ static ssize_t	check_bonus(va_list args, const char *str)
 			rslt = ft_10to16(va_arg(args, unsigned int), 1, 1);
 	}
 	else if (*str == ' ' && str[1] != '+' && (str[1] == 'd' || str[1] == 'i'))
-		rslt = ft_itoa(va_arg(args, int), 1, 0);
+		rslt = ft_itoaa(va_arg(args, int), 1, 0);
 	else if (*str == ' ' && str[1] != '+' && str[1] == 's')
-		rslt = ft_putstr(va_arg(args, char *));
+		rslt = ft_putstrr(va_arg(args, char *));
 	else if (*str == ' ' && str[1] == '+')
-		rslt = ft_itoa(va_arg(args, int), 1, 1);
+		rslt = ft_itoaa(va_arg(args, int), 1, 1);
 	else if (*str == ' ' && str[1] > 47 && str[1] < 58)
 		rslt = space_case(args, ++str);
 	else if (*str == '+')
-		rslt = ft_itoa(va_arg(args, int), 0, 1);
+		rslt = ft_itoaa(va_arg(args, int), 0, 1);
 	return (rslt);
 }
 
@@ -130,11 +130,11 @@ static ssize_t	space_case(va_list args, const char *str)
 		space_size = a_conver_i(str);
 		while (space_size--)
 		{
-			if (ft_putstr(" ") < 0)
+			if (ft_putstrr(" ") < 0)
 				return (-1);
 			rtrn++;
 		}
-		size = ft_putstr(va_arg(args, char *));
+		size = ft_putstrr(va_arg(args, char *));
 		if (size < 0)
 			return (-1);
 		return (rtrn + size);

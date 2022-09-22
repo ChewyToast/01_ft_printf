@@ -40,10 +40,10 @@ ssize_t	ft_ptoa(unsigned long long int n)
 	ssize_t	size;
 
 	if (n == 0)
-		return (ft_putstr("0x0"));
-	if (ft_putchar('0') < 0)
+		return (ft_putstrr("0x0"));
+	if (ft_putcharr('0') < 0)
 		return (0);
-	if (ft_putchar('x') < 0)
+	if (ft_putcharr('x') < 0)
 		return (0);
 	size = sizeofint(n);
 	str = malloc(sizeof(char) * (size + 1));
@@ -53,7 +53,7 @@ ssize_t	ft_ptoa(unsigned long long int n)
 	str = ptoa_extract(n, str, size);
 	if (!str)
 		return (-1);
-	size = ft_putstr(str) + 2;
+	size = ft_putstrr(str) + 2;
 	free(str);
 	return (size);
 }

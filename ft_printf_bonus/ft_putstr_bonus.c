@@ -11,17 +11,17 @@
 /* ************************************************************************** */
 #include "ft_printf_bonus.h"
 
-ssize_t	ft_putstr(const char *str)
+ssize_t	ft_putstrr(const char *str)
 {
 	ssize_t	size;
 	ssize_t	tmp;
 
 	size = 0;
 	if (!str)
-		return (ft_putstr("(null)"));
+		return (ft_putstrr("(null)"));
 	while (str && *str)
 	{
-		tmp = ft_putchar(*str);
+		tmp = ft_putcharr(*str);
 		if (tmp < 0)
 			return (-1);
 		str++;

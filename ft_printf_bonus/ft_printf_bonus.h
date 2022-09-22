@@ -24,13 +24,12 @@ int		ft_printf(const char *inp_str, ...);
 ssize_t	ft_read(const char *str, va_list args);
 
 ssize_t	ft_ptoa(unsigned long long int n);
-ssize_t	ft_itoa(int n, int space, int sign);
+ssize_t	ft_itoaa(int n, int space, int sign);
 ssize_t	ft_uitoa(unsigned int n);
 ssize_t	ft_10to16(unsigned int n, int mode, int flag);
 
-ssize_t	ft_putchar(char c);
-ssize_t	ft_putstr(const char *str);
-int		ft_strlen(const char *s);
-int     a_conver_i(const char *nptr);
+ssize_t	ft_putcharr(char c);
+ssize_t	ft_putstrr(const char *str);
+int		a_conver_i(const char *nptr);
 
 #endif

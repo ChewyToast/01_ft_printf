@@ -41,13 +41,13 @@ ssize_t	ft_uitoa(unsigned int n)
 	ssize_t		rtrn;
 
 	if (n == 0)
-		return (ft_putchar('0'));
+		return (ft_putcharr('0'));
 	size = sizeofint(n);
 	str = malloc(sizeof(char) * (size + 1));
 	if (!str)
 		return (-1);
 	str[size] = '\0';
-	rtrn = ft_putstr(itoa_extract((long int)n, str, size));
+	rtrn = ft_putstrr(itoa_extract((long int)n, str, size));
 	free(str);
 	return (rtrn);
 }

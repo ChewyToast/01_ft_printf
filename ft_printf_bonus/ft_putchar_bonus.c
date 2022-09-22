@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "ft_printf_bonus.h"
 
-ssize_t	ft_putchar(char c)
+ssize_t	ft_putcharr(char c)
 {
 	ssize_t	rslt;
 

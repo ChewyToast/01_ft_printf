@@ -28,10 +28,10 @@ static ssize_t	sizeofint(unsigned long long int n)
 static ssize_t	printer(char *num, int mode, int flag)
 {
 	if (!mode && flag)
-		return (ft_putstr("0x") + ft_putstr(num));
+		return (ft_putstrr("0x") + ft_putstrr(num));
 	if (mode && flag)
-		return (ft_putstr("0X") + ft_putstr(num));
-	return (ft_putstr(num));
+		return (ft_putstrr("0X") + ft_putstrr(num));
+	return (ft_putstrr(num));
 }
 
 ssize_t	ft_10to16(unsigned int n, int mode, int flag)
@@ -40,7 +40,7 @@ ssize_t	ft_10to16(unsigned int n, int mode, int flag)
 	char	*num;
 
 	if (n == 0)
-		return (ft_putchar('0'));
+		return (ft_putcharr('0'));
 	size = sizeofint(n);
 	num = malloc(sizeof(char) * size + 1);
 	if (num == NULL)

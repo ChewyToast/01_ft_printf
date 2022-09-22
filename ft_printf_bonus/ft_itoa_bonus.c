@@ -31,7 +31,7 @@ static char	*itoa_extract(long int n, char *str, ssize_t size)
 	if (n < 0)
 	{
 		n *= -1;
-		ft_putchar('-');
+		ft_putcharr('-');
 	}
 	while (--size != -1)
 	{
@@ -44,13 +44,13 @@ static char	*itoa_extract(long int n, char *str, ssize_t size)
 static ssize_t	printer(int n, int space, int sign)
 {
 	if (!sign && space && n >= 0)
-		return (ft_putchar(' '));
+		return (ft_putcharr(' '));
 	if (sign && n >= 0)
-		return (ft_putchar('+'));
+		return (ft_putcharr('+'));
 	return (0);
 }
 
-ssize_t	ft_itoa(int n, int space, int sign)
+ssize_t	ft_itoaa(int n, int space, int sign)
 {
 	char		*str;
 	ssize_t		size;
@@ -58,13 +58,13 @@ ssize_t	ft_itoa(int n, int space, int sign)
 
 	rtrn = printer(n, space, sign);
 	if (n == 0)
-		return (rtrn + ft_putchar('0'));
+		return (rtrn + ft_putcharr('0'));
 	size = sizeofint((long int)n);
 	str = malloc(sizeof(char) * (size + 1));
 	if (!str)
 		return (-1);
 	str[size] = '\0';
-	rtrn += ft_putstr(itoa_extract((long int)n, str, size));
+	rtrn += ft_putstrr(itoa_extract((long int)n, str, size));
 	free(str);
 	if (n < 0)
 		return (rtrn + 1);
