@@ -42,9 +42,9 @@ ssize_t	ft_ptoa(unsigned long long int n)
 	if (n == 0)
 		return (ft_putstr("0x0"));
 	if (ft_putchar('0') < 0)
-		return (0);
+		return (-1);
 	if (ft_putchar('x') < 0)
-		return (0);
+		return (-1);
 	size = sizeofint(n);
 	str = malloc(sizeof(char) * (size + 1));
 	if (!str)

@@ -13,10 +13,7 @@
 
 ssize_t	ft_putchar(char c)
 {
-	ssize_t	rslt;
-
-	rslt = write(1, &c, 1);
-	if (rslt < 0)
+	if (write(1, &c, 1) != 1)
 		return (-1);
 	return (1);
 }
