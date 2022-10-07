@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   b_ft_read.c                                        :+:      :+:    :+:   */
+/*   b_ft_read_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoll-pe <bmoll-pe@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 11:47:47 by bmoll-pe          #+#    #+#             */
-/*   Updated: 2022/06/12 11:47:56 by bmoll-pe         ###   ########.fr       */
+/*   Updated: 2022/10/07 22:15:01 by bmoll-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf_bonus.h"
@@ -117,8 +117,8 @@ static ssize_t	check_bonus(va_list args, const char *str)
 
 static ssize_t	space_case(va_list args, const char *str)
 {
-	size_t	size;
-	size_t	rtrn;
+	ssize_t	size;
+	ssize_t	rtrn;
 	int		space_size;
 
 	size = 0;
