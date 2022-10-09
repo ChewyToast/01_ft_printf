@@ -61,12 +61,12 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS) $(LIBR)
 			@echo "$(YELLOW)\n\nlinking...$(GRAY)"
-			@ar -rcs $(NAME) $^
+			@ar -rcs $(NAME) $(OBJS)
 			@echo "$(GREEN)\n🌐 LIBRARY FOR FT_PRINTF WITHOUT BONUS COMPILED 🌐$(DEF_COLOR)\n"
 
 bonus:		$(BNS_OBJS) $(LIBR_BNS)
 			@echo "$(YELLOW)\n\nlinking...$(GRAY)"
-			@ar -rcs $(NAME) $^
+			@ar -rcs $(NAME) $(BNS_OBJS)
 			@echo "$(GREEN)\n🌐 LIBRARY FOR FT_PRINTF WITH BONUS COMPILED 🌐$(DEF_COLOR)\n"
 
 #bonus:		$(BNS_OBJS) $(LIBR)
